@@ -1,0 +1,66 @@
+{
+  "carrier": "harbor",
+  "product": "renters",
+  "fields": [
+    { "key": "applicant_full_name", "label": "Full legal name", "type": "text", "required": true },
+    {
+      "key": "date_of_birth",
+      "label": "Birth date",
+      "type": "date",
+      "format": "MM/DD/YYYY",
+      "required": true,
+      "validation": { "minAge": 21 }
+    },
+    { "key": "contact_email", "label": "Email address", "type": "email", "required": true },
+    { "key": "phone", "label": "Mobile number", "type": "tel", "required": true },
+    {
+      "key": "residence_state",
+      "label": "State of residence",
+      "type": "select",
+      "options": ["California", "Oregon", "Washington", "Arizona"],
+      "required": true
+    },
+    {
+      "key": "postal_code",
+      "label": "Postal code",
+      "type": "text",
+      "pattern": "^\\d{5}(-\\d{4})?$",
+      "required": true
+    },
+    {
+      "key": "contents_coverage",
+      "label": "Contents coverage amount (USD)",
+      "type": "select",
+      "options": [10000, 25000, 50000, 75000],
+      "required": true
+    },
+    {
+      "key": "pets",
+      "label": "Pets in the home",
+      "type": "multiselect",
+      "options": ["None", "Dog", "Cat", "Other"],
+      "required": true
+    },
+    {
+      "key": "dog_breed",
+      "label": "Dog breed",
+      "type": "select",
+      "options": ["Labrador", "Pit Bull", "Rottweiler", "Other"],
+      "required": true,
+      "showIf": { "field": "pets", "includes": "Dog" }
+    },
+    {
+      "key": "claims_last_5_years",
+      "label": "Number of claims in the past 5 years",
+      "type": "number",
+      "min": 0,
+      "required": true
+    },
+    {
+      "key": "building_has_sprinklers",
+      "label": "Does your building have sprinklers?",
+      "type": "boolean",
+      "required": false
+    }
+  ]
+}
