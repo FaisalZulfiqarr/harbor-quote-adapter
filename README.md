@@ -35,7 +35,6 @@ With the two samples, Maya is asked for phone and 5-year claims, plus the option
 
 ## Assumptions
 
-- **Reconstructed JSON.** The JSON in the brief was scrambled by copy and paste, so I rebuilt the form and profiles from it. The `required` flags were the hard part to read at the end of the form: I took `claims_last_5_years` as required and `building_has_sprinklers` as optional. I also took Sam's truncated `has_dog: fals` as `false`.
 - **Request shape.** The brief doesn't specify an envelope, so the request is a flat object of Harbor's field keys and values. Unanswered optional fields and hidden fields are omitted, and coverage stays a number.
 - **Eligibility.** Only the rules Harbor states count: `minAge` and the listed states. Age is checked against today's date in the customer's timezone. I didn't invent rules for Pit Bulls, Rottweilers or claim counts, even though Harbor probably cares about them, because the definition doesn't say so.
 - **Ineligible customers see no form.** There's no point collecting a phone number for a quote that can't happen. If the profile is wrong, it should be fixed at the profile level.
